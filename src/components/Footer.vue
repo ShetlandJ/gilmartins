@@ -1,13 +1,14 @@
 <template>
   <div @click="clicked = true" v-if="!clicked" id="footer">
     <strong>
-      <p id="footer-text">We are open 8am - 8pm today</p>
+      <p id="footer-text">We are open 8am - 8pm today! ️☝️</p>
     </strong>
   </div>
 
   <div v-else id="opening-hours-screen">
 
     <div id="hours">
+      <h1 @click="clicked = false">👇</h1>
       <h2>Opening hours</h2>
       <p>Monday: 8am-7pm</p>
       <p>Tuesday: Closed</p>
@@ -42,6 +43,8 @@ export default {
   display: grid;
   justify-content: center;
   align-content: center;
+  transition: all 0.5s;
+
 }
 
 #opening-hours-screen {
@@ -63,6 +66,10 @@ export default {
   height: 0px;
   opacity: 0;
   transition: all 0.5s
+}
+
+#hours {
+  color: white;
 }
 
 #footer-text {

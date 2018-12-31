@@ -3,7 +3,6 @@
     <Menu/>
     <Carousel/>
     <Content/>
-    <!-- <OpeningHours /> -->
     <Footer />
   </div>
 </template>

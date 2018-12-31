@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '@/components/App'
+
+import App from '@/components/App';
+import About from '@/components/Menu/About';
+
 import BootstrapVue from 'bootstrap-vue'
 import VueCarousel from 'vue-carousel';
 
@@ -18,6 +21,11 @@ export default new Router({
       path: '/',
       name: 'App',
       component: App
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })
