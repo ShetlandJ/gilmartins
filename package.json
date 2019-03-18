@@ -7,12 +7,15 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "serve": "node server/server.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "build": "node build/build.js"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
+    "connect-history-api-fallback": "^1.6.0",
+    "express": "^4.16.4",
     "vue": "^2.5.2",
     "vue-carousel": "^0.17.0",
     "vue-router": "^3.0.1"

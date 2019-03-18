@@ -12,7 +12,6 @@ import Menu from "./Menu";
 import Carousel from "./Carousel";
 import Content from "./Content";
 import Footer from "./Footer";
-import OpeningHours from "./OpeningHours";
 
 export default {
   data() {
@@ -20,12 +19,14 @@ export default {
     };
   },
 
+  methods: {
+  },
+
   components: {
     Menu,
     Carousel,
     Content,
     Footer,
-    OpeningHours
   }
 };
 </script>

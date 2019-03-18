@@ -1,12 +1,16 @@
 <template>
-  <div id="content">
-    <h1 id="welcome">Welcome to Gilmartin's Bakery</h1>
-    <h2 id="welcome">Where to find us:</h2>
+  <div class="content">
+    <h3 id="welcome">Where to find us:</h3>
+    <p>2 Avenue Square, Stewarton, KA3 5AA</p>
+        <a href="https://www.google.com/maps/dir/My+Location/2+Avenue+Square,+Stewarton,+Kilmarnock/@55.6817365,-4.5176679,17z">Directions</a>
+
+    <b-img :src="require('../assets/bank.png')" fluid />
     <div id="filler"></div>
+
   </div>
 </template>
 
-<script>
+<script scoped>
 export default {};
 </script>
 
@@ -18,4 +22,13 @@ export default {};
 #filler {
   height: 60px;
 }
+
+.content {
+  /* background-color: #FEE6E3; */
+}
+
+p {
+  margin: 0
+}
+
 </style>

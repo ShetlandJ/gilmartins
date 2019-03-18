@@ -1,14 +1,15 @@
 <template>
   <div @click="clicked = true" v-if="!clicked" id="footer">
     <strong>
-      <p id="footer-text">We are open 8am - 8pm today! ️☝️</p>
+      <p id="footer-text">We are open 8am - 8pm today!</p>
     </strong>
+    <button type="button" class="btn btn-dark btn-sm">Opening hours</button>
+
   </div>
 
   <div v-else id="opening-hours-screen">
 
-    <div id="hours">
-      <h1 @click="clicked = false">👇</h1>
+    <div id="hours"  @click="clicked = false">
       <h2>Opening hours</h2>
       <p>Monday: 8am-7pm</p>
       <p>Tuesday: Closed</p>
@@ -37,8 +38,8 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background: #24a2b6;
+  height: 75px;
+  background: #fee6e3;
   color: white;
   display: grid;
   justify-content: center;
@@ -54,7 +55,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: #24A2B6;
+  background-color: #fee6e3;
   transition: 0.5s ease-in;
 }
 
@@ -69,10 +70,12 @@ export default {
 }
 
 #hours {
-  color: white;
+ color: rgba(0, 0, 0, 0.5);
 }
 
 #footer-text {
   margin: 0;
+   color: rgba(0, 0, 0, 0.5);
+
 }
 </style>
