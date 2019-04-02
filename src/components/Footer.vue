@@ -39,8 +39,8 @@ export default {
   bottom: 0;
   width: 100%;
   height: 75px;
-  background: #fee6e3;
-  color: white;
+  background: white;
+  color: black;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -55,7 +55,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: #fee6e3;
+  background-color: white;
   transition: 0.5s ease-in;
 }
 

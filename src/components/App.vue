@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Menu/>
     <Carousel/>
-    <Content/>
-    <Footer />
   </div>
 </template>
 
