@@ -9,6 +9,18 @@
 
       <b-row>
         <b-col>
+          <b-link href="https://www.facebook.com/gilmartinsbakery" target="blank">
+            <b-img class="social-icon mr-2 mt-2 mb-2" :src="require('../assets/soc_fb.png')"/>
+          </b-link>
+
+          <b-link href="https://www.instagram.com/gilmartins_bakery" target="blank">
+            <b-img class="social-icon ml-2 mt-2 mb-2" :src="require('../assets/soc_ig.png')"/>
+          </b-link>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
           <b-nav fill tabs class="nav mb-2 mt-2">
             <b-nav-item @click="menu('home')" :active="home">Home</b-nav-item>
             <b-nav-item @click="menu('about')" :active="about">About</b-nav-item>
@@ -34,7 +46,7 @@
       <div>
         <div id="steph-details">
           <h3>Stephanie Stewart</h3>
-          <p>Owner and head baker Stephanie Stewart is from Dunlop but went to school in Stewarton, where most of her family are from. The landlord is her sister Lindsay, who lives above the cafe!</p>
+          <p>Owner and head baker Stephanie Stewart (née Gilmartin) is from Dunlop but went to school in Stewarton, where most of her family are from. The landlord is her sister Lindsay, who lives above the cafe!</p>
         </div>
 
         <b-container class="bv-example-row">
@@ -223,5 +235,9 @@ a.nav-link {
 
 .p-1 {
   padding: 0rem !important;
+}
+
+.social-icon {
+  width: 35px;
 }
 </style>
