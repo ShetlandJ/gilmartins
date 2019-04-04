@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <App/>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
 <script>
-import App from '@/components/App'
+import App from "@/components/App";
 export default {
   components: {
     App
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

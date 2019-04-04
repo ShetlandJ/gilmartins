@@ -51,7 +51,7 @@
       <h5 class="text-left">We currently have openings for the following roles:</h5>
       <div role="tablist">
         <b-card no-body class="mb-2">
-          <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-card-header header-tag="header" class="p-0" role="tab">
             <b-button block href="#" v-b-toggle.accordion-1 variant="info">Baker/Cook</b-button>
           </b-card-header>
           <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
@@ -96,7 +96,7 @@
         </b-card>
 
         <b-card no-body class="mb-1" @click="reposition">
-          <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-card-header header-tag="header" class="p-0" role="tab">
             <b-button block href="#" v-b-toggle.accordion-2 variant="info">Barista</b-button>
           </b-card-header>
           <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
@@ -215,10 +215,10 @@ a.nav-link {
 .btn-info,
 .btn-info:hover,
 .btn-info:active {
-  background-color: #fde7e5;
-  border-color: #dee1e6;
-  color: black;
-  font-size: 20px;
+  background-color: #fde7e5 !important;
+  border-color: #dee1e6 !important;
+  color: black !important;
+  font-size: 20px !important;
 }
 
 .p-1 {
