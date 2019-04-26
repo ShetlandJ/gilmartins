@@ -24,7 +24,7 @@
           <b-nav fill tabs class="nav mb-2 mt-2">
             <b-nav-item @click="menu('home')" :active="home">Home</b-nav-item>
             <b-nav-item @click="menu('about')" :active="about">About</b-nav-item>
-            <b-nav-item @click="menu('jobs')" :active="jobs">Jobs</b-nav-item>
+            <!-- <b-nav-item @click="menu('jobs')" :active="jobs">Jobs</b-nav-item> -->
           </b-nav>
         </b-col>
       </b-row>
@@ -52,7 +52,7 @@
         <b-container class="bv-example-row">
           <b-row>
             <b-col>
-              <b-img id="steph-picture" :src="require('../assets/steph.png')" fluid/>
+              <b-img id="steph-picture" :src="require('../assets/steph.png')" class="mb-5" fluid/>
             </b-col>
           </b-row>
         </b-container>
@@ -60,15 +60,19 @@
     </b-container>
 
     <b-container v-if="jobs">
-      <h5 class="text-left">We currently have openings for the following roles:</h5>
+      <h5
+        class="text-left"
+      >We don't currently have any openings - keep an eye on our Facebook and Instagram for future openings!</h5>
+
+      <!-- <h5 class="text-left">We currently have openings for the following roles:</h5> -->
       <div role="tablist">
-        <b-card no-body class="mb-2">
+        <!-- <b-card no-body class="mb-2">
           <b-card-header header-tag="header" class="p-0" role="tab">
             <b-button block href="#" v-b-toggle.accordion-1 variant="info">Baker/Cook</b-button>
           </b-card-header>
           <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
             <b-card-body class="text-left">
-              <!-- <b-card-text>Job desc</b-card-text> -->
+
               <p class="font-weight-bold">Baker/Cook • 1 FTE and 0.4 FTE</p>
               <p>We are currently recruiting for a full time and a part time Baker/Cook for our new cafe and bakery at 2 Avenue Square, Stewarton. The role will involve producing a range of breads, cakes, biscuits and pastries for retail, events and wholesale, with occasional food service duties. You will also be responsible for stock management procedures including stocktake and ordering, and maintaining high standards of food hygiene in accordance with Food Standards Scotland legislation, including daily and weekly cleaning procedures. Training will be provided.</p>
 
@@ -105,9 +109,9 @@
               <p>We look forward to receiving your application!</p>
             </b-card-body>
           </b-collapse>
-        </b-card>
+        </b-card>-->
 
-        <b-card no-body class="mb-1" @click="reposition">
+        <!-- <b-card no-body class="mb-1" @click="reposition">
           <b-card-header header-tag="header" class="p-0" role="tab">
             <b-button block href="#" v-b-toggle.accordion-2 variant="info">Barista</b-button>
           </b-card-header>
@@ -147,7 +151,7 @@
               <p>We look forward to receiving your application!</p>
             </b-card-body>
           </b-collapse>
-        </b-card>
+        </b-card>-->
       </div>
     </b-container>
   </div>
