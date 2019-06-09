@@ -7,7 +7,6 @@
 <script>
 import Menu from "./Menu";
 import Carousel from "./Carousel";
-import Content from "./Content";
 import Footer from "./Footer";
 
 export default {
@@ -22,7 +21,6 @@ export default {
   components: {
     Menu,
     Carousel,
-    Content,
     Footer,
   }
 };
