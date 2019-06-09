@@ -20,20 +20,28 @@
       </b-row>
 
       <b-row>
+          <b-col>
+            <h4>Open today: {{openingHoursToday}}</h4>
+          </b-col>
+        </b-row>
+
+      <b-row>
         <b-col>
           <b-nav fill tabs class="nav mb-2 mt-2">
             <b-nav-item @click="menu('home')" :active="home">Home</b-nav-item>
             <b-nav-item @click="menu('about')" :active="about">About</b-nav-item>
-            <b-nav-item @click="menu('jobs')" :active="jobs">Jobs</b-nav-item>
+            <b-nav-item @click="menu('jobs')" v-if="vacancies" :active="jobs">Jobs</b-nav-item>
+            <b-nav-item @click="menu('food')" :active="food">Menu</b-nav-item>
+            <b-nav-item :href="'https://www.google.com/maps/place/Gilmartin\'s+Bakery/@55.6838435,-4.5252111,14.78z/data=!4m5!3m4!1s0x4888358d72e6b1bf:0x8ada5c65bf456056!8m2!3d55.6808677!4d-4.5144958'" target="_blank">Visit</b-nav-item>
           </b-nav>
         </b-col>
       </b-row>
     </b-container>
 
     <b-container v-if="home">
-      <b-img class="bread" :src="require('../assets/bread.png')"/>
+      <b-img class="bread" :src="require('../assets/bread.jpg')"/>
 
-      <h4 class="mt-3">A new cafe for Stewarton - coming soon</h4>
+      <h4 class="mt-3">A cafe and bakery serving breakfast, brunch, lunch and amazing cakes.</h4>
 
       <h5 class="mt-3">2 Avenue Square, KA3 5AB</h5>
 
@@ -42,149 +50,71 @@
       </a>
     </b-container>
 
-    <b-container v-if="about">
-      <div>
-        <div id="steph-details">
-          <h3>Stephanie Stewart</h3>
-          <p>Owner and head baker Stephanie Stewart (née Gilmartin) is from Dunlop but went to school in Stewarton, where most of her family are from. The landlord is her sister Lindsay, who lives above the cafe!</p>
-        </div>
+    <About v-if="about"/>
 
-        <b-container class="bv-example-row">
-          <b-row>
-            <b-col>
-              <b-img id="steph-picture" :src="require('../assets/steph.png')" fluid/>
-            </b-col>
-          </b-row>
-        </b-container>
-      </div>
-    </b-container>
+    <JobsPage v-if="vacancies"/>
 
-    <b-container v-if="jobs">
-      <h5 class="text-left">We currently have openings for the following roles:</h5>
-      <div role="tablist">
-        <b-card no-body class="mb-2">
-          <b-card-header header-tag="header" class="p-0" role="tab">
-            <b-button block href="#" v-b-toggle.accordion-1 variant="info">Baker/Cook</b-button>
-          </b-card-header>
-          <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
-            <b-card-body class="text-left">
-              <!-- <b-card-text>Job desc</b-card-text> -->
-              <p class="font-weight-bold">Baker/Cook • 1 FTE and 0.4 FTE</p>
-              <p>We are currently recruiting for a full time and a part time Baker/Cook for our new cafe and bakery at 2 Avenue Square, Stewarton. The role will involve producing a range of breads, cakes, biscuits and pastries for retail, events and wholesale, with occasional food service duties. You will also be responsible for stock management procedures including stocktake and ordering, and maintaining high standards of food hygiene in accordance with Food Standards Scotland legislation, including daily and weekly cleaning procedures. Training will be provided.</p>
-
-              <p class="font-weight-bold">Essential</p>
-
-              <ul>
-                <li>Food Hygiene certificate</li>
-                <li>Strong knowledge of baking</li>
-                <li>Passion for artisanal baking, including sourdough</li>
-                <li>Creative cook with a flair for producing delicious brunch dishes and freshly made cakes with high-quality ingredients</li>
-                <li>Works on own initiative and is a quick and capable problem-solver</li>
-                <li>Friendly and personable, and love working as part of a team</li>
-              </ul>
-
-              <p class="font-weight-bold">Desirable</p>
-              <ul>
-                <li>Ideally trained to SCQF Level 6 or equivalent</li>
-                <li>Knowledge of high-quality local suppliers</li>
-              </ul>
-
-              <p class="font-weight-bold">Hours of work</p>
-              <p>Shifts will be allocated on a rota basis within our operating hours of 7am - 5pm Monday - Saturday, 8am - 5pm Sunday. Additional hours may be required for holiday cover. These roles will be offered on a permanent basis with a three month probationary period.</p>
-
-              <p class="font-weight-bold">Pay</p>
-              <p>Pay will be commensurate with experience and will be supplemented by tips which will be shared equally amongst staff.</p>
-
-              <p class="font-weight-bold">To apply:</p>
-              <p>
-                Please send your CV and an email detailing why you would be a good fit to
-                <span>
-                  <a href="mailto:steph@gilmartinsbakery.com">steph@gilmartinsbakery.com</a>
-                </span>
-              </p>
-              <p>We look forward to receiving your application!</p>
-            </b-card-body>
-          </b-collapse>
-        </b-card>
-
-        <b-card no-body class="mb-1" @click="reposition">
-          <b-card-header header-tag="header" class="p-0" role="tab">
-            <b-button block href="#" v-b-toggle.accordion-2 variant="info">Barista</b-button>
-          </b-card-header>
-          <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
-            <b-card-body class="text-left">
-              <p class="font-weight-bold">Barista •️ 0.2 - 0.8 FTE</p>
-              <p>We are currently recruiting for part-time baristas for our new cafe and bakery at 2 Avenue Square, Stewarton. The role will involve being the first point of contact for customers, producing hot drinks including tea, hot chocolate and espresso-based coffee drinks using high-grade coffee beans. You will be responsible for cash handling procedures, retail sales, stock management, replenishment of supplies and some visual merchandising. Experience is preferred but training will be provided for the right candidate.</p>
-
-              <p class="font-weight-bold">Essential</p>
-
-              <ul>
-                <li>Excellent customer service skills</li>
-                <li>Works on own initiative and is a quick and capable problem-solver</li>
-                <li>Friendly and personable, and loves working as part of a team</li>
-                <li>Observant and quick to offer help or go the extra mile for customers where they can</li>
-              </ul>
-
-              <p class="font-weight-bold">Desirable</p>
-              <ul>
-                <li>Good photography skills for Instragramming all those cakes</li>
-              </ul>
-
-              <p class="font-weight-bold">Hours of work</p>
-              <p>Shifts will be allocated on a rota basis within our operating hours of 7am - 5pm Monday - Saturday, 8am - 5pm Sunday. Additional hours may be required for holiday cover. These roles will be offered on a permanent basis with a three month probationary period.</p>
-
-              <p class="font-weight-bold">Pay</p>
-              <p>Pay will be commensurate with experience and will be supplemented by tips which will be shared equally amongst staff.</p>
-
-              <p class="font-weight-bold">To apply:</p>
-              <p>
-                Please send your CV and an email detailing why you would be a good fit to
-                <span>
-                  <a href="mailto:steph@gilmartinsbakery.com">steph@gilmartinsbakery.com</a>
-                </span>
-              </p>
-
-              <p>We look forward to receiving your application!</p>
-            </b-card-body>
-          </b-collapse>
-        </b-card>
-      </div>
-    </b-container>
+    <FoodMenu v-if="food" />
   </div>
 </template>
 
 <script>
+import About from "./About.vue";
+import JobsPage from "./JobsPage.vue";
+import FoodMenu from './FoodMenu.vue';
+
 export default {
   data() {
     return {
       home: true,
       about: false,
-      jobs: false
+      jobs: false,
+      vacancies: false,
+      openingHours:[
+          '08:00 - 17:00',
+          '07:00 - 17:00',
+          '07:00 - 17:00',
+          '07:00 - 17:00',
+          '07:00 - 17:00',
+          '07:00 - 17:00',
+          '07:00 - 17:00',
+      ],
+      today: new Date(),
     };
   },
-
+  components: {
+    About,
+    JobsPage,
+    FoodMenu,
+  },
+  computed: {
+      openingHoursToday() {
+          const todaysDate = this.today.getDay();
+          return this.openingHours[todaysDate];
+      },
+  },
   methods: {
     reposition() {
-      // window.onbeforeunload = function() {
-      //   window.scrollTo(0, 0);
-      // };
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     menu(type) {
+      this.resetMenuState();
       if (type == "home") {
         this.home = true;
-        this.about = false;
-        this.jobs = false;
       } else if (type == "about") {
-        this.home = false;
         this.about = true;
-        this.jobs = false;
       } else if (type == "jobs") {
-        this.home = false;
-        this.about = false;
         this.jobs = true;
+      } else if (type == "food") {
+        this.food = true;
       }
-    }
+    },
+    resetMenuState() {
+      this.home = false;
+      this.about = false;
+      this.jobs = false;
+      this.food = false;
+    },
   }
 };
 </script>
@@ -198,7 +128,7 @@ a.nav-link {
   font-size: 20px;
 }
 .bread {
-  width: 75%;
+  width: 100%;
   transition: 0.5s;
 }
 
