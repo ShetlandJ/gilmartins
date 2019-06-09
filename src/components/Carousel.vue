@@ -9,7 +9,7 @@
 
       <b-row>
         <b-col>
-          <h5>07876 133461</h5>
+          <h5>07876 133461 • 2 Avenue Square, Stewarton</h5>
         </b-col>
       </b-row>
 
