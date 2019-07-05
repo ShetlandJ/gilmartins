@@ -9,6 +9,12 @@
 
       <b-row>
         <b-col>
+          <h5>07876 133461 • 2 Avenue Square, Stewarton</h5>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
           <b-link href="https://www.facebook.com/gilmartinsbakery" target="blank">
             <b-img class="social-icon mr-2 mt-2 mb-2" :src="require('../assets/soc_fb.png')"/>
           </b-link>
@@ -19,11 +25,20 @@
         </b-col>
       </b-row>
 
-      <b-row>
+      <b-row v-b-toggle.collapse-1-inner>
         <b-col>
-          <h4>Open today: {{openingHoursToday}}</h4>
+          <h4>
+            Open today: {{openingHoursToday}}
+            <p style="font-size: 14px">(click to show all)</p>
+          </h4>
         </b-col>
       </b-row>
+
+      <b-collapse id="collapse-1-inner" class="mt-2">
+        <b-card>
+          <p v-for="day in week" :key="day.day">{{getDayHours(day, true)}}</p>
+        </b-card>
+      </b-collapse>
 
       <b-row>
         <b-col>
@@ -72,16 +87,43 @@ export default {
       home: true,
       about: false,
       jobs: false,
+      food: false,
       vacancies: false,
-      openingHours: [
-        "08:00 - 17:00",
-        "07:00 - 17:00",
-        "07:00 - 17:00",
-        "07:00 - 17:00",
-        "07:00 - 17:00",
-        "07:00 - 17:00",
-        "07:00 - 17:00"
-      ],
+      sunday: {
+        day: "Sunday",
+        open: "09:00",
+        close: "17:00"
+      },
+      monday: {
+        day: "Monday",
+        open: "08:00",
+        close: "17:00"
+      },
+      tuesday: {
+        day: "Tuesday",
+        open: "08:00",
+        close: "17:00"
+      },
+      wednesday: {
+        day: "Wednesday",
+        open: "08:00",
+        close: "17:00"
+      },
+      thursday: {
+        day: "Thursday",
+        open: "08:00",
+        close: "17:00"
+      },
+      friday: {
+        day: "Friday",
+        open: "08:00",
+        close: "17:00"
+      },
+      saturday: {
+        day: "Saturday",
+        open: "08:00",
+        close: "17:00"
+      },
       today: new Date()
     };
   },
@@ -93,7 +135,20 @@ export default {
   computed: {
     openingHoursToday() {
       const todaysDate = this.today.getDay();
-      return this.openingHours[todaysDate];
+      return this.getDayHours(this.week[todaysDate]);
+    },
+    week() {
+      const week = [
+        this.sunday,
+        this.monday,
+        this.tuesday,
+        this.wednesday,
+        this.thursday,
+        this.friday,
+        this.saturday
+      ];
+
+      return week;
     }
   },
   methods: {
@@ -111,6 +166,13 @@ export default {
       } else if (type == "food") {
         this.food = true;
       }
+    },
+    getDayHours(day, withDay = false) {
+      if (!withDay) {
+        return `${day.open} - ${day.close}`;
+      }
+
+      return `${day.day}: ${day.open} - ${day.close}`;
     },
     resetMenuState() {
       this.home = false;
