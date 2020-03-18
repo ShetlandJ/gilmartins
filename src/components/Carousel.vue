@@ -76,6 +76,9 @@
                     <p>
                         <b>What we cannot get: toiletries, nappies, and other non-food items.</b>
                     </p>
+
+                    <h3><a href="https://drive.google.com/file/d/1hSYfauLmBsOS9ZW3VHWyGwnrNeksbFxZ/view?usp=sharing" target="_blank">See price list</a></h3>
+
                     <p>If you would like request an order, please complete the below form and we'll be in touch with you ASAP:</p>
 
 
