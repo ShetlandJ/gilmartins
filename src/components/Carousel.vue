@@ -65,27 +65,98 @@
 
             <template v-else>
                 <div class="text-left">
-                    <h2>Coronavirus update:</h2>
+                    <b-row>
+                        <b-col>
+                            <b-nav fill tabs class="nav mb-2 mt-2">
+                                <b-nav-item @click="menu('home')" :active="home">Home</b-nav-item>
+                                <b-nav-item @click="menu('faq')" :active="home">FAQ</b-nav-item>
+                            </b-nav>
+                        </b-col>
+                    </b-row>
+                    <div v-if="home">
+                        <h2>Community update:</h2>
 
-                    <p>Gilmartin's is adapting to the ongoing situation regarding coronavirus. We have closed our sit-in service for the moment and are instead focusing on take-aways and acting as a supermarket, selling catering-sized food, like pasta, chicken, bacon and cheese.</p>
+                        <p>
+                            At Gilmartin's we take pride in being a local business and supporting local suppliers as
+                            well as the community. We are adapting to the ongoing situation regarding coronavirus
+                            to look after our staff but also to provide a much-needed service to Stewarton and
+                            beyond. We launched this earlier this week and are continually evolving the system to
+                            serve the community as best we can.
+                        </p>
 
-                    <p>We are taking orders and delivering to primarily the East Ayrshire area.</p>
-                    <p>
-                        <b>What we can get: fruit, veg, meat, dairy, pulses, pasta, baking goods etc. We can sell things like flour by weight.</b>
-                    </p>
-                    <p>
-                        <b>What we cannot get: toiletries, nappies, and other non-food items.</b>
-                    </p>
+                        <h2>What you need to know:</h2>
 
-                    <h3><a href="https://drive.google.com/file/d/1hSYfauLmBsOS9ZW3VHWyGwnrNeksbFxZ/view?usp=sharing" target="_blank">See price list</a></h3>
+                        <p>
+                            We have now closed our sit-in service and have repurposed the space to enable us to
+                            act as a supermarket, selling catering sized foods to our customers.
+                            We are taking orders for collection or delivery to primarily the East Ayrshire area.
+                        </p>
 
-                    <p>If you would like request an order, please complete the below form and we'll be in touch with you ASAP:</p>
+                        <h2>How to order from us:</h2>
 
+                        <p>
+                            We have created our price list which you can access here. We will be updating this
+                            regularly and the list details the key items we can source for you such as: fruit, veg, meat,
+                            dairy, pulses, pasta, baking goods etc. We can sell also sell products, such as flour, by
+                            weight.
+                        </p>
 
+                        <p>Unfortunately, we cannot order toiletries, nappies, and other non-food items.</p>
 
-                    <!-- <submission-form /> -->
+                        <p>
+                            To order, please view the
+                            <a
+                                href="https://drive.google.com/file/d/1hSYfauLmBsOS9ZW3VHWyGwnrNeksbFxZ/view?usp=sharing"
+                                target="_blank"
+                            >price list</a> and then complete the order form below with the
+                            exact details of the items you need as they appear on the list. For example:
+                        </p>
 
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHWcbLgXXk2JBboNPv-TyVN_HpVOG7BU0AJxx9GpreKvZP1w/viewform?embedded=true" width="640" height="1153" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                        <ul>
+                            <li>1 Pint Whole Mossgiel Milk</li>
+                            <li>1 Brakes Honey Roast Ham</li>
+                            <li>2 Penne Pasta</li>
+                        </ul>
+
+                        <p>
+                            We will accept orders until
+                            <b>4pm</b> each day.
+                        </p>
+
+                        <p>
+                            Our opening hours are subject to change. The most up-to-date information will be posted on our
+                            <a
+                                href="https://www.facebook.com/gilmartinsbakery"
+                                target="_blank"
+                            >Facebook page.</a>
+                        </p>
+
+                        <p>
+                            Once we receive it your order will be ready for collection within 2 days. So, for example, an
+                            order we receive on Monday will be ready for you to collect or be delivered on the
+                            Wednesday.
+                        </p>
+
+                        <p>
+                            We hope you understand that we are processing and fulfilling these orders as fast as we
+                            can order from our network of suppliers who are working very hard at this time too.
+                        </p>
+
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSfHWcbLgXXk2JBboNPv-TyVN_HpVOG7BU0AJxx9GpreKvZP1w/viewform?embedded=true"
+                            width="640"
+                            height="1153"
+                            frameborder="0"
+                            marginheight="0"
+                            marginwidth="0"
+                        >Loading…</iframe>
+                    </div>
+                    <div v-else>
+                        <div v-for="(faq, index) in faqs" :key="index">
+                            <h2>{{faq.title}}</h2>
+                            <p>{{faq.body}}</p>
+                        </div>
+                    </div>
                 </div>
             </template>
         </b-container>
@@ -118,7 +189,6 @@
 import About from "./About.vue";
 import JobsPage from "./JobsPage.vue";
 import FoodMenu from "./FoodMenu.vue";
-import SubmissionForm from './SubmissionForm.vue';
 
 export default {
     data() {
@@ -136,6 +206,7 @@ export default {
             food: false,
             vacancies: false,
             coronavirus: true,
+            faq: false,
             sunday: {
                 day: "Sunday",
                 open: "09:00",
@@ -171,14 +242,50 @@ export default {
                 open: "08:00",
                 close: "17:00"
             },
+            faqs: [
+                {
+                    title: "Can you source...?",
+                    body:
+                        "We are baking items ourselves and working with our network of suppliers to offer as wide a food range as possible. We will update our price list with new products when we can but cannot order specific items. If there is a product you particularly need, send it as a request and if there is enough demand, we will try to order it."
+                },
+                {
+                    title: "Have you received my order?",
+                    body:
+                        "Every order that gets placed on the website is stored in a spreadsheet and the team works through the spreadsheet in order of when the message was sent. We definitely have received your request, but we're limited in how quickly we can respond. Please be patient with us while we manage this process."
+                },
+                {
+                    title: "How do I order?",
+                    body:
+                        "To order, head on over to the home page, check out the price list and complete the form at the bottom of the page. Please read the information on the home page, as incomplete or incorrectly formatted orders delay our team and require us to contact you instead of just being able to focus on energies on getting your order together."
+                },
+                {
+                    title: "When will I receive my order?",
+                    body:
+                        "Once we receive it your order will be ready for collection within 2 days. So, for example, an order we receive on Monday will be ready for you to collect or be delivered on the Wednesday. We hope you understand that we are processing and fulfilling these orders as fast as we can order from our network of suppliers who are working very hard at this time too. In some circumstances, orders may be available for next day delivery of collection but that depends on us having the items in stock."
+                },
+                {
+                    title: "How do I pay?",
+                    body:
+                        "We will be accepting contactless payment when we deliver your items, or when you collect them at the bakery."
+                },
+                {
+                    title: "Will I get everything I order?",
+                    body:
+                        "These are challenging times for the food industry, and we will endeavour to get you everything you order. If we are unable to get something, we will offer you a substitution which you are welcome to reject."
+                },
+                {
+                    title: "I am self-isolating, can I order?",
+                    body:
+                        "If you are self-isolating, we can still deliver to you but we will ask you to call us so we can take payment over the phone to avoid contact/transmission risk."
+                }
+            ],
             today: new Date()
         };
     },
     components: {
         About,
         JobsPage,
-        FoodMenu,
-        SubmissionForm,
+        FoodMenu
     },
     computed: {
         openingHoursToday() {
@@ -213,6 +320,8 @@ export default {
                 this.jobs = true;
             } else if (type == "food") {
                 this.food = true;
+            } else if (type == "faq") {
+                this.faq = true;
             }
         },
         getDayHours(day, withDay = false) {
@@ -227,6 +336,7 @@ export default {
             this.about = false;
             this.jobs = false;
             this.food = false;
+            this.faq = false;
         }
     }
 };
