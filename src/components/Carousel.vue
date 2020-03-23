@@ -95,7 +95,11 @@
                         <h2>How to order from us:</h2>
 
                         <p>
-                            We have created our price list which you can access here. We will be updating this
+                            We have created our price list which you can
+                            <a
+                                href="https://drive.google.com/file/d/1hSYfauLmBsOS9ZW3VHWyGwnrNeksbFxZ/view?usp=sharing"
+                                target="_blank"
+                            >access here</a>. We will be updating this
                             regularly and the list details the key items we can source for you such as: fruit, veg, meat,
                             dairy, pulses, pasta, baking goods etc. We can sell also sell products, such as flour, by
                             weight.
@@ -123,18 +127,11 @@
                             <b>4pm</b> each day.
                         </p>
 
-                        <p>
-                            Our opening hours are subject to change. The most up-to-date information will be posted on our
-                            <a
-                                href="https://www.facebook.com/gilmartinsbakery"
-                                target="_blank"
-                            >Facebook page.</a>
-                        </p>
+                        <p>As of 23 March we are a <b>delivery only</b> operation. Delivery is currently <b>£2</b> if you are less than 8 miles from the cafe, otherwise it will <b>£4</b>.
 
                         <p>
-                            Once we receive it your order will be ready for collection within 2 days. So, for example, an
-                            order we receive on Monday will be ready for you to collect or be delivered on the
-                            Wednesday.
+                            Once we receive it your order will be ready for delivery within 2 days. So, for example, an
+                            order we receive on Monday will be ready to be delivered on the Wednesday.
                         </p>
 
                         <p>
