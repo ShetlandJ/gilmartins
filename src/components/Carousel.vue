@@ -127,8 +127,17 @@
                             <b>4pm</b> each day.
                         </p>
 
-                        <p>As of 23 March we are a <b>delivery only</b> operation. Delivery is currently <b>£2</b> if you are less than 8 miles from the cafe, otherwise it will <b>£4</b>.
+                        <p>
+                            As of 23 March we are a
+                            <b>delivery only</b> operation. Delivery is currently
+                            <b>£2</b> if you are less than 8 miles from the cafe, otherwise it will
+                            <b>£4</b>
+                            .
+                        </p>
+                        <h2>How do I pay:</h2>
 
+                        <p>We will text you a payment link when we have your order is ready, to avoid any contact.</p>
+                        <hr />
                         <p>
                             Once we receive it your order will be ready for delivery within 2 days. So, for example, an
                             order we receive on Monday will be ready to be delivered on the Wednesday.
@@ -146,6 +155,9 @@
                             frameborder="0"
                             marginheight="0"
                             marginwidth="0"
+                            id="google-form"
+                            @load="moveToTop"
+                            @change="changed"
                         >Loading…</iframe>
                     </div>
                     <div v-else>
@@ -276,7 +288,8 @@ export default {
                         "If you are self-isolating, we can still deliver to you but we will ask you to call us so we can take payment over the phone to avoid contact/transmission risk."
                 }
             ],
-            today: new Date()
+            today: new Date(),
+            triggeredEvents: 0
         };
     },
     components: {
@@ -303,7 +316,26 @@ export default {
             return week;
         }
     },
+    mounted() {
+        window.scrollTo(0, 0);
+    },
     methods: {
+        changed() {
+            debugger;
+        },
+        moveToTop() {
+            if (this.triggeredEvents > 0) {
+                const element = document.getElementById("google-form");
+                const y = element.getBoundingClientRect().top + window.scrollY;
+
+                window.scroll({
+                    top: y,
+                    behavior: "smooth"
+                });
+            } else {
+                this.triggeredEvents++;
+            }
+        },
         reposition() {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         },
